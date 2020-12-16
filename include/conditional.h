@@ -5,7 +5,7 @@
 // wenn cond_func(src) == true wird src abhängig von dest
 // enweder zurückgegeben, oder einer anderen Variable zugewiesen
 // als type muss der Datentyp von src übergeben werden
-#define IF_(cond_func, type, dest, src) \
+#define IF(cond_func, type, dest, src) \
 	{ \
 		type const res__ = (src); \
 		if (cond_func(res__)) { \
