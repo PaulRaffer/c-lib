@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <sys/types.h>
 
+#include "any.h"
 #include "error.h"
 #include "str.h"
 
@@ -18,7 +19,7 @@ bool is_child(pid_t pid);
 bool is_parent(pid_t pid);
 
 
-typedef err_t (*action_t)(str_t);
+typedef err_t (*action_t)(str_t name, any_t data);
 typedef struct {
 	// Prozessnummer
 	pid_t pid;
@@ -28,6 +29,8 @@ typedef struct {
 	err_t result;
 	// Name des Prozesses
 	str_t name;
+	// Daten die an die Funktion übergeben werden sollen
+	any_t data;
 } proc_t;
 	
 pid_t create_process(proc_t * proc);

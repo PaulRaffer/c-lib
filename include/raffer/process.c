@@ -29,7 +29,7 @@ pid_t create_process(proc_t * proc)
 		// mit dem eigenen Namen als Argument aus
 		// und speichert das Ergebnis in proc->result
 		// wenn ein Fehler aufgetreten ist, wird proc->result zurückgegeben
-		IF(is_error, err_t, return, proc->result = proc->action(proc->name))
+		IF(is_error, err_t, return, proc->result = proc->action(proc->name, proc->data))
 	}
 	// Prozessnummer wird zurückgegeben
 	return proc->pid;
